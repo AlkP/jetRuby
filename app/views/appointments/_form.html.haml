@@ -1,0 +1,25 @@
+= form_for @appointment, html: { class: 'form-horizontal', role: 'form' } do |app|
+  %div.form-group
+    %label.col-sm-4
+    %div.col-sm-8
+      = render 'appointments/errors'
+  %div.form-group
+    = app.label :title, t('.title'), { class: 'col-sm-4 control-label' }
+    %div.col-sm-8
+      = app.text_field :title, :class => "form-control", :id => "appointment_title", :type => "groupname"
+  %div.form-group
+    = app.label :body, t('.body'), { class: 'col-sm-4 control-label' }
+    %div.col-sm-8
+      = app.text_area :body, :class => "form-control", :id => "appointment_body", :type => "groupname"
+  -#%div.form-group
+  -#  = app.label :state, t('.state'), { class: 'col-sm-4 control-label' }
+  -#  %div.col-sm-8
+  -#    = app.select :state, Appointment.states.keys, { include_blank: false, hide_label: true, :selected => @appointment.state }, {:class => "form-control"}
+  %div.form-group
+    = app.label :app_time, t('.app_time'), { class: 'col-sm-4 control-label' }
+    %div.col-sm-8
+      = app.datetime_field :app_time, :class => "form-control", :id => "appointment_app_time"
+  %div.form-group
+    %label.col-sm-4
+    %div.col-sm-8
+      = app.submit

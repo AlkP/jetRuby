@@ -1,0 +1,44 @@
+
+ru:
+  Login: Вход
+  Logout: Выход
+  not_authenticate: Перед началом использования авторизуйтесь
+  layouts:
+    menu:
+      show_token:  Мой api токен
+      new_token:  Сгенерировать новый токен
+      new_appointment: Новая встреча
+  users:
+    show_token:
+      title_show_token: Ваш текущий токен
+    new_token:
+      title_new_token: Ваш новый api токен
+  appointments:
+    form:
+      title: Наименование
+      body: Текст
+      state: Состояние
+      app_time: Время встречи
+    appointment:
+      success: Подтвердить встречу
+      cancel: Отменить встречу
+      remind: Создать напоминание о встрече
+      update?: Действительно подтвердить встречу?
+      cancel?: Действительно отменить встречу?
+      request_remind?: Добавить напоминание?
+    appointment_request_remind:
+      request_remind: Добавить напоминание
+      app_time: Напомнить за
+      submit: Сохранить
+    update:
+      confirmed: Подтверждено
+      time_is_busy: Время занято
+
+
+  activerecord:
+    errors:
+      models:
+        appointment:
+          attributes:
+            app_time:
+              blank: Время встречи должно быть задано

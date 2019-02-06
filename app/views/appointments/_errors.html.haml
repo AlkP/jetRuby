@@ -1,0 +1,9 @@
+- if @appointment.errors.any?
+  %div.form-group
+    %label.col-sm-4
+    %div.col-sm-8
+      %div#error_explanation
+        %ul
+          - @appointment.errors.full_messages.each do |message|
+            %li
+              = message

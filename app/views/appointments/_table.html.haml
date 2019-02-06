@@ -1,0 +1,15 @@
+%thead
+  %tr
+    %th
+      = link_to_sort('title', @page)
+      = t('.title')
+    %th
+      = link_to_sort('body', @page)
+      = t('.body')
+    %th
+      = link_to_sort('app_time', @page)
+      = t('.app_time')
+    %th
+
+  %tbody
+    = render @appointments

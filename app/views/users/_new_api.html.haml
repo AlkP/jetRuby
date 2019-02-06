@@ -1,0 +1,13 @@
+%div.modal-header
+  %h5.modal-title#myModalLabel
+    = title
+    %button.close{ type: 'button', 'data-dismiss': 'modal' }
+      %span{ 'aria-hidden': 'true' }
+        ×
+
+%div.modal-body
+  = api
+
+%div.modal-footer
+  %button.btn.btn-secondary{ type: 'button', 'data-dismiss': 'modal' }
+    Close

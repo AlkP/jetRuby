@@ -1,0 +1,33 @@
+%nav{ class: 'navbar navbar-default navbar-fixed-top', role: 'navigation' }
+  %div{ class: 'navbar-header'}
+    %button.some{ type: 'button', class: 'navbar-toggle', :'data-toggle' => 'collapse', :'data-target' => '#bs-example-navbar-collapse-1' }
+      %span{ class: 'sr-only' } Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand.some{ href: root_path }
+      %span.glyphicon.glyphicon-home
+
+  %div{ class: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1'}
+    %ul.some{ class: 'nav navbar-nav'}
+      - if user_signed_in? && controller_name == 'appointments' && action_name == 'index'
+        %li
+          = link_to t('.new_appointment'), new_appointment_path
+
+    %ul{ class: 'nav navbar-nav navbar-right' }
+      - if user_signed_in?
+        %li.dropdown
+          %a{ href: '#', class: 'dropdown-toggle', :'data-toggle' => 'dropdown' }
+            = current_user.email
+            %span.glyphicon.glyphicon-collapse-down
+          %ul.dropdown-menu{"aria-labelledby": "navbarDropdownMenuLink"}
+            %li
+              = link_to t('Logout'), destroy_user_session_path, method: :delete
+            - if current_user.guest_token.present?
+              %li
+                = link_to t('.show_token'), show_token_path, remote: true
+            %li
+              = link_to t('.new_token'), generate_token_path, remote: true
+      - else
+        %li
+          = link_to t('Login'), new_user_session_path

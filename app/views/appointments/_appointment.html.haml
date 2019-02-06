@@ -1,0 +1,11 @@
+%tr
+  %td
+    = appointment.title
+  %td
+    = appointment.body
+  %td
+    = appointment.app_time
+  %td
+    = link_to '', appointment_path(appointment), class: 'glyphicon glyphicon-ok', title: t('.success'),method: :put, data: { confirm: t('.update?') } if policy(appointment).update?
+    = link_to '', appointment_path(appointment), class: 'glyphicon glyphicon-remove', title: t('.cancel'), method: :delete, data: { confirm: t('.cancel?') } if policy(appointment).destroy?
+    = link_to '', request_remind_path(appointment), class: 'glyphicon glyphicon-flag', title: t('.remind'), method: :get, 'data-remote': true if policy(appointment).request_remind?

@@ -1,0 +1,6 @@
+%div.row
+  %div.col-md-12
+    %table.table.table-striped.appointments-table
+      = render 'appointments/table'
+
+= paginate @appointments, theme: 'twitter-bootstrap-3', pagination_class: 'pagination-sm'

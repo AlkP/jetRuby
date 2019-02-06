@@ -1,0 +1,22 @@
+%div.modal-header
+  %h5.modal-title#myModalLabel
+    = t('.request_remind')
+    %button.close{ type: 'button', 'data-dismiss': 'modal' }
+      %span{ 'aria-hidden': 'true' }
+        ×
+
+%div.modal-body
+  = form_for '', html: { class: 'form-horizontal', role: 'form' } do
+    %div.form-group
+      = label_tag :app_time, t('.app_time'), { class: 'col-sm-4 control-label' }
+      %div.col-sm-8
+        = number_field :app_time, 'hours'
+    %div.form-group
+      %label.col-sm-4
+      %div.col-sm-8
+        = submit_tag t('.submit'), :class => "btn"
+
+
+%div.modal-footer
+  %button.btn.btn-secondary{ type: 'button', 'data-dismiss': 'modal' }
+    Close

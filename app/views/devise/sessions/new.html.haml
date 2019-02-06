@@ -1,0 +1,23 @@
+.col-md-4
+.col-md-4
+  %div.form-group
+    %label.col-sm-4
+    %div.col-sm-8.actions
+      %h2
+        = t('.title_login')
+      %br
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-horizontal', role: 'form' }) do |f|
+    %div.form-group
+      = f.label :email, t('.email'), { class: 'col-sm-4 control-label' }
+      %div.col-sm-8
+        = f.email_field :email, :class => "form-control", autocomplete: "email", autofocus: true, :type => "groupname"
+    %div.form-group
+      = f.label :password, t('.password'), { class: 'col-sm-4 control-label' }
+      %div.col-sm-8
+        = f.password_field :password, :class => "form-control", autocomplete: "off"
+    %div.form-group
+      %label.col-sm-4
+      %div.col-sm-8.actions
+        = f.submit t('.login'), { class: 'btn btn-primary' }
+  = render "devise/shared/links"
+.col-md-4
